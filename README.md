@@ -1,6 +1,6 @@
 # KRM Project — Patate Fusion
 
-Jeu de fusion de patates : lâche des patates WILLIAM dans le bocal. Quand deux patates pareilles se touchent, elles fusionnent en la patate suivante, qui dit son nom à voix haute, de plus en plus grave et de plus en plus lentement.
+Jeu de fusion de patates (avec ma tête) : lâche des patates WILLIAM dans le bocal. Quand deux patates pareilles se touchent, elles fusionnent en la patate suivante, qui dit son nom à voix haute, de plus en plus grave et de plus en plus lentement.
 
 WILLIAM › KRM › DUBBLE YOU › MOUSTIQUE › LOUP GAROU › ALPHA DUBB
 
