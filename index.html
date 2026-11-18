@@ -249,12 +249,14 @@ function ensureAudio() {
     if (actx.state === 'suspended') actx.resume();
   } catch (e) {}
 }
-let mergeVoiceUntil = 0;
-function say(lv, isDrop = false) {
+// Priorité de parole : la patate la plus grosse parle en premier.
+// Une voix ne coupe que celle d'une patate plus petite ; une patate plus petite (ou pareille) attend son tour.
+let voiceUntil = 0, voiceLv = -1;
+function say(lv, isDrop = false, force = false) {
   if (muted || !actx || !voiceBufs[lv]) return;
-  // le nom d'une fusion n'est jamais coupé par un simple lâcher
-  if (isDrop && actx.currentTime < mergeVoiceUntil) return;
-  mergeVoiceUntil = actx.currentTime + (isDrop ? voiceBufs[lv].duration * 0.9 : voiceBufs[lv].duration);
+  const busy = actx.currentTime < voiceUntil;
+  if (busy && !force && lv <= voiceLv) return;
+  voiceUntil = actx.currentTime + voiceBufs[lv].duration; voiceLv = lv;
   try { if (curVoice) curVoice.stop(); } catch (e) {}
   const src = actx.createBufferSource(), g = actx.createGain();
   g.gain.value = 1.4;
@@ -399,7 +401,7 @@ function burst(x, y, lv) {
 // ---------- Contrôles ----------
 document.getElementById('test').onclick = () => {
   ensureAudio();
-  const go = () => { const m = muted; muted = false; say(0); muted = m; };
+  const go = () => { const m = muted; muted = false; say(0, false, true); muted = m; };
   voiceBufs[0] ? go() : setTimeout(go, 300);
   captionEl.textContent = 'LA PATATE WILLIAM';
 };
