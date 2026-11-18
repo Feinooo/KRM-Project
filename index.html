@@ -304,7 +304,7 @@ function randLv() { return 0; } // on ne lâche que des WILLIAM
 
 function newGame() {
   engine = Engine.create(); engine.gravity.y = 1.1;
-  const wall = { isStatic: true, friction: .2, restitution: .3 };
+  const wall = { isStatic: true, friction: .1, restitution: .85 };
   const walls = [], SEG = 72, T = 24, gap = Math.asin(NECK / BR) + 0.02;
   for (let i = 0; i < SEG; i++) {
     const a = (i + 0.5) / SEG * Math.PI * 2;          // a = 0 en haut
@@ -328,7 +328,7 @@ function newGame() {
 }
 
 function addPotato(x, y, lv) {
-  const b = Bodies.circle(x, y, LEVELS[lv].r * SOFT, { restitution: .6, friction: .4, frictionStatic: .6, density: .002 });
+  const b = Bodies.circle(x, y, LEVELS[lv].r * SOFT, { restitution: .85, friction: .2, frictionStatic: .4, frictionAir: .004, density: .002 });
   b.lv = lv; b.born = performance.now(); b.wob = 0.18; b.wobV = 0; b.wobDir = 0;
   potatoes.add(b); Composite.add(engine.world, b);
   return b;
