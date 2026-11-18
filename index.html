@@ -534,27 +534,15 @@ function flaskPath() {
 }
 function drawFlask(now, front) {
   if (!front) {
-    // intérieur
+    // intérieur uni
     flaskPath(); ctx.closePath();
-    const g = ctx.createRadialGradient(CX - 60, CY - 70, 20, CX, CY, BR);
-    g.addColorStop(0, 'rgba(120,108,190,.30)'); g.addColorStop(1, 'rgba(50,44,82,.55)');
-    ctx.fillStyle = g; ctx.fill();
-    // repère de débordement en bas du col
-    ctx.save(); ctx.setLineDash([6, 6]); ctx.lineWidth = 2;
-    ctx.strokeStyle = overTimer > 0 ? `rgba(255,107,122,${.5 + .5 * Math.sin(now / 80)})` : 'rgba(169,162,199,.35)';
-    ctx.beginPath(); ctx.moveTo(CX - NECK, NECK_Y); ctx.lineTo(CX + NECK, NECK_Y); ctx.stroke(); ctx.restore();
+    ctx.fillStyle = '#322c52'; ctx.fill();
     return;
   }
-  // paroi en verre + reflet
+  // bords noirs
   ctx.save();
   ctx.lineJoin = 'round'; ctx.lineCap = 'round';
-  flaskPath(); ctx.lineWidth = 7; ctx.strokeStyle = 'rgba(200,190,255,.35)'; ctx.stroke();
-  flaskPath(); ctx.lineWidth = 2; ctx.strokeStyle = 'rgba(246,241,255,.7)'; ctx.stroke();
-  ctx.beginPath(); ctx.arc(CX, CY, BR - 14, Math.PI * 1.08, Math.PI * 1.32);
-  ctx.lineWidth = 6; ctx.strokeStyle = 'rgba(255,255,255,.18)'; ctx.stroke();
-  // rebord du col
-  ctx.fillStyle = 'rgba(200,190,255,.45)';
-  ctx.fillRect(CX - NECK - 8, 0, 10, 6); ctx.fillRect(CX + NECK - 2, 0, 10, 6);
+  flaskPath(); ctx.lineWidth = 6; ctx.strokeStyle = '#000'; ctx.stroke();
   ctx.restore();
 }
 
