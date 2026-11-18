@@ -1,6 +1,6 @@
 # KRM Project — Patate Fusion
 
-Jeu de fusion de patates (avec ma tête) : lâche des patates WILLIAM dans le bocal. Quand deux patates pareilles se touchent, elles fusionnent en la patate suivante, qui dit son nom à voix haute, de plus en plus grave et de plus en plus lentement.
+Jeu de fusion de patates (avec ma tête) : des patates WILLIAM tombent toutes seules dans un ballon à fond rond. Quand deux patates pareilles se touchent, elles fusionnent en la patate suivante, qui dit son nom à voix haute, de plus en plus grave et de plus en plus lentement.
 
 WILLIAM › KRM › DUBBLE YOU › MOUSTIQUE › LOUP GAROU › ALPHA DUBB
 
@@ -18,11 +18,9 @@ Sans Python, tu peux aussi ouvrir directement le fichier :
 xdg-open index.html
 ```
 
-## Commandes
+## Comment ça marche
 
-- Viser : bouger la souris (ou le doigt) au-dessus du bocal
-- Lâcher : clic, ou Espace
-- Flèches gauche/droite : viser au clavier
+Clique sur **Lancer**. Les WILLIAM tombent toutes seules par le col du ballon. Quand ALPHA DUBB apparaît, elle devient un trou noir qui aspire tout : victoire cosmique. Si les patates remontent dans le col, c'est perdu.
 
 ## Fichiers
 
